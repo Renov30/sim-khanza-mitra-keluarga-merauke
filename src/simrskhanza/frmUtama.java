@@ -108,6 +108,7 @@ import bridging.PCareCekReferensiKesadaran;
 import bridging.PCareCekReferensiKhusus;
 import bridging.PCareCekReferensiObat;
 import bridging.PCareCekReferensiPenyakit;
+import bridging.PCareCekKartu;
 import bridging.PCareCekReferensiPoli;
 import bridging.PCareCekReferensiProvider;
 import bridging.PCareCekReferensiSarana;
@@ -1593,6 +1594,7 @@ public class frmUtama extends javax.swing.JFrame {
         btnGrafikStatusRegBatalPerTahun = new widget.ButtonBig();
         btnGrafikStatusRegBatalPerBulan = new widget.ButtonBig();
         btnCekPCareDiagnosa = new widget.ButtonBig();
+        btnCekPCareNik = new widget.ButtonBig();
         btnGrafikStatusRegBatalPerTanggal = new widget.ButtonBig();
         btnKategoriBarang = new widget.ButtonBig();
         btnGolonganBarang = new widget.ButtonBig();
@@ -4980,6 +4982,16 @@ public class frmUtama extends javax.swing.JFrame {
         btnCekPCareDiagnosa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCekPCareDiagnosaActionPerformed(evt);
+            }
+        });
+        btnCekPCareNik.setIcon(new javax.swing.ImageIcon(getClass().getResource("/48x48/pcare.png"))); // NOI18N
+        btnCekPCareNik.setText("PCare Cek NIK");
+        btnCekPCareNik.setIconTextGap(0);
+        btnCekPCareNik.setName("btnCekPCareNik"); // NOI18N
+        btnCekPCareNik.setPreferredSize(new java.awt.Dimension(200, 90));
+        btnCekPCareNik.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCekPCareNikActionPerformed(evt);
             }
         });
 
@@ -12202,6 +12214,17 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
         form.setVisible(true);
         this.setCursor(Cursor.getDefaultCursor());
     }//GEN-LAST:event_btnCekPCareDiagnosaActionPerformed
+
+    private void btnCekPCareNikActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCekPCareNikActionPerformed
+        isTutup();
+        DlgHome.dispose();
+        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+        PCareCekKartu form=new PCareCekKartu(this,false);
+        form.setSize(PanelUtama.getWidth(), PanelUtama.getHeight());
+        form.setLocationRelativeTo(PanelUtama);
+        form.setVisible(true);
+        this.setCursor(Cursor.getDefaultCursor());
+    }//GEN-LAST:event_btnCekPCareNikActionPerformed
 
     private void btnGrafikStatusRegBatalPerTanggalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGrafikStatusRegBatalPerTanggalActionPerformed
         isTutup();
@@ -22281,6 +22304,7 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
     private widget.ButtonBig btnCekInhealthFaskes;
     private widget.ButtonBig btnCekInhealthPoli;
     private widget.ButtonBig btnCekPCareDiagnosa;
+    private widget.ButtonBig btnCekPCareNik;
     private widget.ButtonBig btnCekPCareKesadaran;
     private widget.ButtonBig btnCekPCareRujukan;
     private widget.ButtonBig btnCekReferensiCaraKeluarBPJS;
@@ -25787,6 +25811,11 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
             
             if(akses.getpcare_cek_penyakit()==true){
                 Panelmenu.add(btnCekPCareDiagnosa);
+                jmlmenu++;
+            }
+            
+            if(akses.getpcare_cek_penyakit()==true){
+                Panelmenu.add(btnCekPCareNik);
                 jmlmenu++;
             }
             
@@ -31187,6 +31216,11 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
         
         if(akses.getpcare_cek_penyakit()==true){
             Panelmenu.add(btnCekPCareDiagnosa);
+            jmlmenu++;
+        }
+
+        if(akses.getpcare_cek_penyakit()==true){
+            Panelmenu.add(btnCekPCareNik);
             jmlmenu++;
         }
         
@@ -37696,6 +37730,13 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
         if(akses.getpcare_cek_penyakit()==true){
             if(btnCekPCareDiagnosa.getText().toLowerCase().trim().contains(TCari.getText().toLowerCase().trim())){
                 Panelmenu.add(btnCekPCareDiagnosa);
+                jmlmenu++;
+            }                
+        }
+
+        if(akses.getpcare_cek_penyakit()==true){
+            if(btnCekPCareNik.getText().toLowerCase().trim().contains(TCari.getText().toLowerCase().trim())){
+                Panelmenu.add(btnCekPCareNik);
                 jmlmenu++;
             }                
         }
