@@ -174,6 +174,8 @@ import rekammedis.RMTimeOutSebelumInsisi;
 import rekammedis.RMTransferPasienAntarRuang;
 import rekammedis.RMTriaseIGD;
 import rekammedis.RMUjiFungsiKFR;
+import bridging.PCareDataPendaftaran;
+import simrskhanza.DlgCariPeriksaLab;
 
 /**
  *
@@ -1675,6 +1677,9 @@ public final class DlgRawatJalan extends javax.swing.JDialog {
         BtnPenilaianTambahanBunuhDiri = new widget.Button();
         BtnPenilaianTambahanPerilakuKekerasan = new widget.Button();
         BtnPenilaianTambahanMelarikanDiri = new widget.Button();
+        BtnShortcutDataPCare = new widget.Button();
+        BtnShortcutCaper = new widget.Button();
+        BtnShortcutHasilPeriksaLab = new widget.Button();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setUndecorated(true);
@@ -2554,6 +2559,51 @@ public final class DlgRawatJalan extends javax.swing.JDialog {
         jLabel37.setName("jLabel37"); 
         panelGlass12.add(jLabel37);
         jLabel37.setBounds(0, 10, 70, 23);
+
+        BtnShortcutDataPCare.setEnabled(false);
+        BtnShortcutDataPCare.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/resume-pink.png"))); // NOI18N
+        BtnShortcutDataPCare.setText("Data PCare");
+        BtnShortcutDataPCare.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        BtnShortcutDataPCare.setGlassColor(new java.awt.Color(255, 255, 153));
+        BtnShortcutDataPCare.setName("BtnShortcutDataPCare"); // NOI18N
+        BtnShortcutDataPCare.setPreferredSize(new java.awt.Dimension(100, 30));
+        BtnShortcutDataPCare.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnShortcutDataPCareActionPerformed(evt);
+            }
+        });
+        panelGlass12.add(BtnShortcutDataPCare);
+        BtnShortcutDataPCare.setBounds(910, 40, 180, 30);
+
+        BtnShortcutCaper.setEnabled(false);
+        BtnShortcutCaper.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/resume-pink.png"))); // NOI18N
+        BtnShortcutCaper.setText("Catatan Keperawatan");
+        BtnShortcutCaper.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        BtnShortcutCaper.setGlassColor(new java.awt.Color(255, 255, 153));
+        BtnShortcutCaper.setName("BtnShortcutCaper"); // NOI18N
+        BtnShortcutCaper.setPreferredSize(new java.awt.Dimension(100, 30));
+        BtnShortcutCaper.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnShortcutCaperActionPerformed(evt);
+            }
+        });
+        panelGlass12.add(BtnShortcutCaper);
+        BtnShortcutCaper.setBounds(910, 80, 180, 30);
+
+        BtnShortcutHasilPeriksaLab.setEnabled(false);
+        BtnShortcutHasilPeriksaLab.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/resume-pink.png"))); // NOI18N
+        BtnShortcutHasilPeriksaLab.setText("Hasil Periksa Lab");
+        BtnShortcutHasilPeriksaLab.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        BtnShortcutHasilPeriksaLab.setGlassColor(new java.awt.Color(255, 255, 153));
+        BtnShortcutHasilPeriksaLab.setName("BtnShortcutHasilPeriksaLab"); // NOI18N
+        BtnShortcutHasilPeriksaLab.setPreferredSize(new java.awt.Dimension(100, 30));
+        BtnShortcutHasilPeriksaLab.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnShortcutHasilPeriksaLabActionPerformed(evt);
+            }
+        });
+        panelGlass12.add(BtnShortcutHasilPeriksaLab);
+        BtnShortcutHasilPeriksaLab.setBounds(910, 120, 180, 30);
 
         KdPeg.setHighlighter(null);
         KdPeg.setName("KdPeg"); 
@@ -7528,6 +7578,44 @@ private void BtnEditKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
         Valid.pindah2(evt,TPenilaian,TInstruksi);
     }//GEN-LAST:event_TindakLanjutKeyPressed
 
+    private void BtnShortcutDataPCareActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPCarePendaftaranActionPerformed
+        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+        PCareDataPendaftaran form=new PCareDataPendaftaran(null,false);
+        form.isCek();
+        form.setSize(internalFrame1.getWidth()-20,internalFrame1.getHeight()-20);
+        form.setLocationRelativeTo(internalFrame1);
+        form.setVisible(true);
+        this.setCursor(Cursor.getDefaultCursor());
+    }//GEN-LAST:event_btnPCarePendaftaranActionPerformed
+
+   private void BtnShortcutCaperActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCatatanKeperawatanActionPerformed
+        if(TPasien.getText().trim().equals("")||TNoRw.getText().trim().equals("")){
+            JOptionPane.showMessageDialog(null,"Maaf, Silahkan anda pilih dulu dengan menklik data pada table...!!!");
+            TCari.requestFocus();
+        }else{
+            this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+            RMDataCatatanKeperawatanRalan form=new RMDataCatatanKeperawatanRalan(null,false);
+            form.isCek();
+            form.setSize(internalFrame1.getWidth()-20,internalFrame1.getHeight()-20);
+            form.setLocationRelativeTo(internalFrame1);
+            form.setVisible(true);
+            form.emptTeks();
+            form.setNoRm(TNoRw.getText(),DTPCari2.getDate());
+            form.tampil();
+            this.setCursor(Cursor.getDefaultCursor());
+        }
+    }//GEN-LAST:event_BtnCatatanKeperawatanActionPerformed
+ 
+    private void BtnShortcutHasilPeriksaLabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCatatanKeperawatanActionPerformed
+        DlgCariPeriksaLab form=new DlgCariPeriksaLab(null,false);
+        //produsen.emptTeks();
+        form.isCek();
+        form.setSize(internalFrame1.getWidth(),internalFrame1.getHeight());
+        form.setLocationRelativeTo(internalFrame1);
+        form.setVisible(true);
+        this.setCursor(Cursor.getDefaultCursor());
+    }//GEN-LAST:event_BtnCatatanKeperawatanActionPerformed
+
     private void BtnTriaseIGDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnTriaseIGDActionPerformed
         if(TPasien.getText().trim().equals("")||TNoRw.getText().trim().equals("")){
             JOptionPane.showMessageDialog(null,"Maaf, Silahkan anda pilih dulu dengan menklik data pada table...!!!");
@@ -9751,6 +9839,9 @@ private void BtnEditKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
     private widget.Button BtnPenilaianTambahanBunuhDiri;
     private widget.Button BtnPenilaianTambahanGeriatri;
     private widget.Button BtnPenilaianTambahanMelarikanDiri;
+    private widget.Button BtnShortcutDataPCare;
+    private widget.Button BtnShortcutCaper;
+    private widget.Button BtnShortcutHasilPeriksaLab;
     private widget.Button BtnPenilaianTambahanPerilakuKekerasan;
     private widget.Button BtnPenilaianUlangNyeri;
     private widget.Button BtnPermintaanLab;
@@ -10844,6 +10935,9 @@ private void BtnEditKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                 cmbDtk.setEnabled(false);
             }
         }
+        BtnShortcutDataPCare.setEnabled(akses.getbridging_pcare_daftar());
+        BtnShortcutCaper.setEnabled(akses.getcatatan_perawatan());
+        BtnShortcutHasilPeriksaLab.setEnabled(akses.getperiksa_lab());
     }
 
     private void tampilPemeriksaan() {
