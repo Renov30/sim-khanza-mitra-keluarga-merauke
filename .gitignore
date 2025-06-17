@@ -1,2 +1,34 @@
-/dist/
+# Folder
 /build/
+dist/
+dist_home/
+setting_home/
+setting_bak/
+lib/
+db_backup/
+report/*.pdf
+webapps/berkasrawat/pages/upload/
+webapps/persetujuanumum/pages/upload/
+versi/
+webapps/suratperintahranap/pages/upload/
+helper/env
+helper/*.csv
+
+*.iyem
+*.log
+*.DS_Store
+*.exe
+
+## Swap/temporary files
+*.un~
+*~
+.*.un~
+*.swp
+*.swo
+
+lib/
+my.cnf
+*~$*.xlsx
+
+.vscode
+.idea
