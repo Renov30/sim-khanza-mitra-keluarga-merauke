@@ -1172,7 +1172,18 @@ import ziscsr.ZISPengeluaranPenerimaDankes;
 import ziscsr.ZISPenghasilanPenerimaDankes;
 import ziscsr.ZISTernakPenerimaDankes;
 import ziscsr.ZISUkuranRumahPenerimaDankes;
-
+import java.io.BufferedOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.URL;
+import java.net.URLConnection;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipInputStream;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -1212,6 +1223,7 @@ public class frmUtama extends javax.swing.JFrame {
         jMenu6.setOpaque(false);
         jMenu7.setOpaque(false);
         jMenu4.setOpaque(false);
+        jMenu8.setOpaque(false);
 
         cariNIK.getTable().addKeyListener(new KeyListener() {
             @Override
@@ -1862,6 +1874,7 @@ public class frmUtama extends javax.swing.JFrame {
         MnCariEbook = new javax.swing.JMenuItem();
         MnCariInventarisPerpustakaan = new javax.swing.JMenuItem();
         jMenu7 = new javax.swing.JMenu();
+        jMenu8 = new javax.swing.JMenu();
         MnAnjungan = new javax.swing.JMenuItem();
         jSeparator12 = new javax.swing.JPopupMenu.Separator();
         MnRekapHadir9 = new javax.swing.JMenuItem();
@@ -1879,6 +1892,7 @@ public class frmUtama extends javax.swing.JFrame {
         MnInfoLaborat1 = new javax.swing.JMenuItem();
         MnInfoLaborat3 = new javax.swing.JMenuItem();
         MnInfoLaborat2 = new javax.swing.JMenuItem();
+        MnUpdate = new javax.swing.JMenuItem();
         jSeparator13 = new javax.swing.JPopupMenu.Separator();
         MnRekapHadir6 = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
@@ -7477,11 +7491,11 @@ public class frmUtama extends javax.swing.JFrame {
         jLabel7.setForeground(new java.awt.Color(50, 50, 50));
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/file-edit-16x16.png"))); // NOI18N
-        jLabel7.setText(" Didesain & dibuat oleh Khanza.Soft Media");
+        jLabel7.setText(" Versi 1.0 ");
         jLabel7.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         jLabel7.setIconTextGap(3);
         jLabel7.setName("jLabel7"); // NOI18N
-        jLabel7.setPreferredSize(new java.awt.Dimension(287, 23));
+        jLabel7.setPreferredSize(new java.awt.Dimension(120, 23));
         internalFrame4.add(jLabel7);
 
         getContentPane().add(internalFrame4, java.awt.BorderLayout.PAGE_END);
@@ -8313,6 +8327,31 @@ public class frmUtama extends javax.swing.JFrame {
 
         MenuBar.add(jMenu7);
 
+        jMenu8.setBackground(new java.awt.Color(255, 255, 255));
+        jMenu8.setBorder(null);
+        jMenu8.setForeground(new java.awt.Color(255, 255, 253));
+        jMenu8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/Uparrow2.png"))); // NOI18N
+        jMenu8.setText("Update SIM Khanza");
+        jMenu8.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        jMenu8.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jMenu8.setName("jMenu8"); // NOI18N
+        jMenu8.setPreferredSize(new java.awt.Dimension(137, 26));
+
+        MnUpdate.setBackground(new java.awt.Color(255, 255, 254));
+        MnUpdate.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        MnUpdate.setForeground(new java.awt.Color(50, 90, 40));
+        MnUpdate.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/36.png"))); // NOI18N
+        MnUpdate.setText("Update ke Versi terbaru");
+        MnUpdate.setName("MnUpdate"); // NOI18N
+        MnUpdate.setPreferredSize(new java.awt.Dimension(235, 30));
+        MnUpdate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnUpdateActionPerformed(evt);
+            }
+        });
+        jMenu8.add(MnUpdate);
+        MenuBar.add(jMenu8);
+
         jMenu4.setBackground(new java.awt.Color(20, 0, 20));
         jMenu4.setBorder(null);
         jMenu4.setForeground(new java.awt.Color(255, 255, 253));
@@ -8805,6 +8844,71 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
         DlgHome.dispose();
         this.setCursor(Cursor.getDefaultCursor());
     }//GEN-LAST:event_btnRanapActionPerformed
+
+    private void BtnUpdateActionPerformed(java.awt.event.ActionEvent evt) {
+        // JOptionPane.showMessageDialog(null, "[ Sedang mendownload ... ]\nKlik OK dan Tunggu 1 Menit hingga muncul \"Update Berhasil\".");
+        // try {
+        //     // URL of the ZIP file to download
+        //     // String zipURL = "http://192.168.2.210/arwildo_a889z/SIMBunda.zip";
+        //     String zipURL = "http://192.168.2.210/mitra_3449a/SIMKhanza.zip";
+
+        //     // Destination directory
+        //     String saveDir = "C:/Khanza Klinik Mitra Keluarga/";
+
+        //     // Establish connection
+        //     URL url = new URL(zipURL);
+        //     URLConnection connection = url.openConnection();
+
+        //     // Get input stream from connection
+        //     InputStream inputStream = connection.getInputStream();
+
+        //     // Output directory
+        //     File outputDir = new File(saveDir);
+
+        //     // Create directory if it doesn't exist
+        //     if (!outputDir.exists()) {
+        //         outputDir.mkdirs();
+        //     }
+
+        //     // Open zip input stream
+        //     ZipInputStream zipInputStream = new ZipInputStream(inputStream);
+
+        //     // Extract files from the ZIP
+        //     ZipEntry entry;
+        //     while ((entry = zipInputStream.getNextEntry()) != null) {
+        //         String filePath = saveDir + entry.getName();
+        //         if (!entry.isDirectory()) {
+        //             // If the entry is a file, extract it
+        //             extractFile(zipInputStream, filePath);
+        //         } else {
+        //             // If the entry is a directory, create it
+        //             File dir = new File(filePath);
+        //             dir.mkdirs();
+        //         }
+        //         zipInputStream.closeEntry();
+        //     }
+        //     zipInputStream.close();
+
+        //     System.out.println("SIMBunda files updated successfully.");
+        //     JOptionPane.showMessageDialog(null, "Update Berhasil ✅\nSilahkan tutup SIMBunda dan mulai kembali.");
+
+        //     // Now you might want to restart your application or perform any necessary actions to load the updated files
+
+        // } catch (Exception e) {
+        //     System.out.println("Error updating SIMKhanza files: " + e.getMessage());
+        //     JOptionPane.showMessageDialog(null, "Error updating SIMBunda files: " + e.getMessage());
+        // }
+    }
+
+    private void extractFile(ZipInputStream zipIn, String filePath) throws IOException {
+        try (BufferedOutputStream bos = new BufferedOutputStream(new FileOutputStream(filePath))) {
+            byte[] bytesIn = new byte[4096];
+            int read;
+            while ((read = zipIn.read(bytesIn)) != -1) {
+                bos.write(bytesIn, 0, read);
+            }
+        }
+    }
 
     private void btnResepObatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResepObatActionPerformed
         isTutup();
@@ -22227,6 +22331,7 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
     private javax.swing.JMenuItem MnInfoLaborat1;
     private javax.swing.JMenuItem MnInfoLaborat2;
     private javax.swing.JMenuItem MnInfoLaborat3;
+    private javax.swing.JMenuItem MnUpdate;
     private javax.swing.JMenuItem MnInfoMobileJKN;
     private javax.swing.JMenuItem MnKoleksiPenelitian;
     private javax.swing.JMenuItem MnLogin;
@@ -22740,6 +22845,7 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenu jMenu6;
     private javax.swing.JMenu jMenu7;
+    private javax.swing.JMenu jMenu8;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JPopupMenu.Separator jSeparator10;
     private javax.swing.JPopupMenu.Separator jSeparator12;
