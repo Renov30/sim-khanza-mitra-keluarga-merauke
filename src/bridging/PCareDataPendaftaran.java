@@ -3391,6 +3391,63 @@ public final class PCareDataPendaftaran extends javax.swing.JDialog {
 }//GEN-LAST:event_TCariKeyPressed
 
     private void BtnCariActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCariActionPerformed
+        if(akses.getform().equals("DlgReg")||akses.getform().equals("DlgIGD")||akses.getform().equals("DlgKamarInap")){
+            NoKartu.setText(Sequel.cariIsi("select pasien.no_peserta from pasien where pasien.no_rkm_medis=?",TNoRM.getText()));
+            if(NoKartu.getText().trim().equals("")){
+                JOptionPane.showMessageDialog(null,"Pasien tidak mempunyai kepesertaan BPJS");
+                dispose();
+            }else{
+                try {
+                    headers = new HttpHeaders();
+                    headers.setContentType(MediaType.APPLICATION_JSON);
+                    headers.add("X-cons-id",koneksiDB.CONSIDAPIPCARE());
+                    utc=String.valueOf(api.GetUTCdatetimeAsString());
+                    headers.add("X-timestamp",utc);            
+                    headers.add("X-signature",api.getHmac());
+                    headers.add("X-authorization","Basic "+Base64.encodeBase64String(otorisasi.getBytes()));
+                    headers.add("user_key",koneksiDB.USERKEYAPIPCARE());
+                    requestEntity = new HttpEntity(headers);
+                    root = mapper.readTree(api.getRest().exchange(koneksiDB.URLAPIPCARE()+"/peserta/"+NoKartu.getText(), HttpMethod.GET, requestEntity, String.class).getBody());
+                    nameNode = root.path("metaData");
+                    if(nameNode.path("message").asText().equals("OK")){
+                        response = mapper.readTree(api.Decrypt(root.path("response").asText(),utc));
+                        if(response.path("ketAktif").asText().equals("AKTIF")){
+                            TPasien.setText(response.path("nama").asText());
+                            TglLahir.setText(response.path("tglLahir").asText());
+                            JK.setText(response.path("sex").asText().replaceAll("L","Laki-Laki").replaceAll("P","Perempuan"));
+                            JenisPeserta.setText(response.path("jnsPeserta").path("nama").asText());
+                            Status.setText(response.path("ketAktif").asText()); 
+                            ProviderPeserta.setText(response.path("kdProviderPst").path("kdProvider").asText());
+                        }else{
+                            JOptionPane.showMessageDialog(null,response.path("ketAktif").asText());
+                            dispose();
+                        }                            
+                    }else {
+                        dispose();
+                    }  
+                } catch (Exception ex) {
+                    System.out.println("Notifikasi : "+ex);
+                    if(ex.toString().contains("UnknownHostException")){
+                        JOptionPane.showMessageDialog(null,"Koneksi ke server PCare terputus...!");
+                    }else if(ex.toString().contains("500")){
+                        JOptionPane.showMessageDialog(null,"Server PCare baru ngambek broooh...!");
+                    }else if(ex.toString().contains("401")){
+                        JOptionPane.showMessageDialog(null,"Username/Password salah. Lupa password? Wani piro...!");
+                    }else if(ex.toString().contains("408")){
+                        JOptionPane.showMessageDialog(null,"Time out, hayati lelah baaaang...!");
+                    }else if(ex.toString().contains("424")){
+                        JOptionPane.showMessageDialog(null,"Ambil data masternya yang bener dong coy...!");
+                    }else if(ex.toString().contains("412")){
+                        JOptionPane.showMessageDialog(null,"Tidak sesuai kondisi.");
+                    }else if(ex.toString().contains("204")){
+                        JOptionPane.showMessageDialog(null,"Data tidak ditemukan...!");
+                    }else if(ex.toString().contains("refused")){
+                        JOptionPane.showMessageDialog(null,"BPJSe ngelu...!");
+                    }
+                }                 
+            } 
+            TNoRw.requestFocus();
+        }
         tampil();
 }//GEN-LAST:event_BtnCariActionPerformed
 
