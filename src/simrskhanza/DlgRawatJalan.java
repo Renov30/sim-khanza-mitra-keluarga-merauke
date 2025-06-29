@@ -7613,6 +7613,7 @@ private void BtnEditKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
 
     private void BtnShortcutDataPCareActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPCarePendaftaranActionPerformed
         this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+        akses.setform("DlgReg");
         PCareDataPendaftaran dlgki=new PCareDataPendaftaran(null,false);
         dlgki.setSize(internalFrame1.getWidth()-20,internalFrame1.getHeight()-20);
         dlgki.setLocationRelativeTo(internalFrame1);
