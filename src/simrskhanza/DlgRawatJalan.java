@@ -174,6 +174,7 @@ import rekammedis.RMTimeOutSebelumInsisi;
 import rekammedis.RMTransferPasienAntarRuang;
 import rekammedis.RMTriaseIGD;
 import rekammedis.RMUjiFungsiKFR;
+import rekammedis.RMOdontogram;
 import bridging.PCareDataPendaftaran;
 import simrskhanza.DlgCariPeriksaLab;
 import bridging.ICareRiwayatPerawatanFKTP;
@@ -7639,21 +7640,21 @@ private void BtnEditKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
     }//GEN-LAST:event_BtnCatatanKeperawatanActionPerformed
 
    private void BtnShortcutOndotogramActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCatatanKeperawatanActionPerformed
-        // if(TPasien.getText().trim().equals("")||TNoRw.getText().trim().equals("")){
-        //     JOptionPane.showMessageDialog(null,"Maaf, Silahkan anda pilih dulu dengan menklik data pada table...!!!");
-        //     TCari.requestFocus();
-        // }else{
-        //     this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
-        //     RMDataCatatanKeperawatanRalan form=new RMDataCatatanKeperawatanRalan(null,false);
-        //     form.isCek();
-        //     form.setSize(internalFrame1.getWidth()-20,internalFrame1.getHeight()-20);
-        //     form.setLocationRelativeTo(internalFrame1);
-        //     form.setVisible(true);
-        //     form.emptTeks();
-        //     form.setNoRm(TNoRw.getText(),DTPCari2.getDate());
-        //     form.tampil();
-        //     this.setCursor(Cursor.getDefaultCursor());
-        // }
+         if(TNoRw.getText().trim().equals("")){
+            JOptionPane.showMessageDialog(null,"Maaf, Silahkan anda pilih dulu dengan menklik data pada table...!!!");
+            TCari.requestFocus();
+        }else{
+            this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+            RMOdontogram form=new RMOdontogram(null,false);
+            form.isCek();
+            form.setSize(internalFrame1.getWidth()-20,internalFrame1.getHeight()-20);
+            form.setLocationRelativeTo(internalFrame1);
+            form.setVisible(true);
+            form.emptTeks();
+            form.setNoRm(TNoRw.getText(),DTPCari2.getDate());
+            form.tampil();
+            this.setCursor(Cursor.getDefaultCursor());
+        }
     }//GEN-LAST:event_BtnCatatanKeperawatanActionPerformed
 
    private void BtnShortcutPanggilPasienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCatatanKeperawatanActionPerformed

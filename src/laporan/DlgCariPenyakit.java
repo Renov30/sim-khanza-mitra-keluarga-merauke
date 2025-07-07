@@ -128,6 +128,7 @@ public final class DlgCariPenyakit extends javax.swing.JDialog {
         }catch(SQLException ex){
             System.out.println(ex);
         }
+        tampil();
     }
     
 
