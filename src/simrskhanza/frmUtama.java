@@ -1330,7 +1330,6 @@ public class frmUtama extends javax.swing.JFrame {
         edPwd = new widget.PasswordBox();
         BtnLogin = new widget.Button();
         BtnCancel = new widget.Button();
-        jLabel6 = new javax.swing.JLabel();
         DlgHome = new javax.swing.JDialog();
         panelMenu = new widget.InternalFrame();
         panelisi2 = new widget.panelisi();
@@ -1902,23 +1901,39 @@ public class frmUtama extends javax.swing.JFrame {
         DlgLogin.setUndecorated(true);
         DlgLogin.setResizable(false);
 
-        internalFrame2.setBorder(null);
+        // internalFrame2.setBorder(null);
+        // internalFrame2.setName("internalFrame2"); // NOI18N
+        // internalFrame2.setWarnaAtas(new java.awt.Color(225, 71, 152));
+        // internalFrame2.setWarnaBawah(new java.awt.Color(0, 75, 35));
+        // internalFrame2.setLayout(null);
+        internalFrame2.setBackground(new java.awt.Color(255, 255, 255));
+        internalFrame2.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        internalFrame2.setForeground(new java.awt.Color(255, 255, 255));
+        internalFrame2.setMaximumSize(new java.awt.Dimension(32500, 32767));
         internalFrame2.setName("internalFrame2"); // NOI18N
-        internalFrame2.setWarnaAtas(new java.awt.Color(225, 71, 152));
-        internalFrame2.setWarnaBawah(new java.awt.Color(225, 61, 142));
         internalFrame2.setLayout(null);
 
-        internalFrame3.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(100, 125, 90), 1, true), ":: Silahkan Anda Login ::", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 2, 11), new java.awt.Color(50, 50, 50))); // NOI18N
+        // internalFrame3.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(100, 125, 90), 1, true), ":: Silahkan Anda Login ::", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 2, 11), new java.awt.Color(50, 50, 50))); // NOI18N
+        // internalFrame3.setName("internalFrame3"); // NOI18N
+        // internalFrame3.setRequestFocusEnabled(false);
+        // internalFrame3.setWarnaAtas(new java.awt.Color(250, 200, 215));
+        // internalFrame3.setLayout(null);
+        internalFrame3.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createTitledBorder(""), "", javax.swing.border.TitledBorder.LEADING, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Dialog", 0, 12), new java.awt.Color(16, 141, 16))); // NOI18N
         internalFrame3.setName("internalFrame3"); // NOI18N
         internalFrame3.setRequestFocusEnabled(false);
-        internalFrame3.setWarnaAtas(new java.awt.Color(250, 200, 215));
         internalFrame3.setLayout(null);
 
-        panelGlass1.setBackground(java.awt.Color.red);
-        panelGlass1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(185, 185, 110)));
+        // panelGlass1.setBackground(java.awt.Color.red);
+        // panelGlass1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(185, 185, 110)));
+        // panelGlass1.setOpaqueImage(false);
+        // panelGlass1.setRound(false);
+        // panelGlass1.setWarna(new java.awt.Color(255, 255, 200));
+        // panelGlass1.setLayout(null);
+        panelGlass1.setBackground(java.awt.Color.white);
+        panelGlass1.setBorder(null);
         panelGlass1.setOpaqueImage(false);
         panelGlass1.setRound(false);
-        panelGlass1.setWarna(new java.awt.Color(255, 255, 200));
+        panelGlass1.setWarna(new java.awt.Color(16, 141, 16));
         panelGlass1.setLayout(null);
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
@@ -1989,11 +2004,6 @@ public class frmUtama extends javax.swing.JFrame {
         });
         internalFrame3.add(BtnCancel);
         BtnCancel.setBounds(177, 110, 105, 32);
-
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/LaST (Cobalt) Lock n Gear.png"))); // NOI18N
-        jLabel6.setName("jLabel6"); // NOI18N
-        internalFrame3.add(jLabel6);
-        jLabel6.setBounds(105, 5, 135, 145);
 
         internalFrame2.add(internalFrame3);
         internalFrame3.setBounds(2, 12, 295, 155);
@@ -7192,7 +7202,8 @@ public class frmUtama extends javax.swing.JFrame {
         internalFrame1.setName("internalFrame1"); // NOI18N
         internalFrame1.setPreferredSize(new java.awt.Dimension(40, 42));
         internalFrame1.setVerifyInputWhenFocusTarget(false);
-        internalFrame1.setWarnaBawah(new java.awt.Color(250, 175, 185));
+        internalFrame1.setWarnaAtas(new java.awt.Color(254, 254, 254));
+        internalFrame1.setWarnaBawah(new java.awt.Color(254, 254, 254));
         internalFrame1.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT, 0, 2));
 
         BtnMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/menu.png"))); // NOI18N
@@ -7213,10 +7224,10 @@ public class frmUtama extends javax.swing.JFrame {
         });
         internalFrame1.add(BtnMenu);
 
-        jSeparator4.setBackground(new java.awt.Color(225, 61, 142));
-        jSeparator4.setForeground(new java.awt.Color(225, 61, 142));
+        jSeparator4.setBackground(new java.awt.Color(0, 75, 35));
+        jSeparator4.setForeground(new java.awt.Color(0, 75, 35));
         jSeparator4.setOrientation(javax.swing.SwingConstants.VERTICAL);
-        jSeparator4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(217, 1, 122)));
+        jSeparator4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 75, 35)));
         jSeparator4.setName("jSeparator4"); // NOI18N
         jSeparator4.setOpaque(true);
         jSeparator4.setPreferredSize(new java.awt.Dimension(1, 36));
@@ -7258,10 +7269,10 @@ public class frmUtama extends javax.swing.JFrame {
         });
         internalFrame1.add(btnToolIGD);
 
-        jSeparator5.setBackground(new java.awt.Color(225, 61, 142));
-        jSeparator5.setForeground(new java.awt.Color(225, 61, 142));
+        jSeparator5.setBackground(new java.awt.Color(0, 75, 35));
+        jSeparator5.setForeground(new java.awt.Color(0, 75, 35));
         jSeparator5.setOrientation(javax.swing.SwingConstants.VERTICAL);
-        jSeparator5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(217, 1, 122)));
+        jSeparator5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 75, 35)));
         jSeparator5.setName("jSeparator5"); // NOI18N
         jSeparator5.setOpaque(true);
         jSeparator5.setPreferredSize(new java.awt.Dimension(1, 36));
@@ -7318,10 +7329,10 @@ public class frmUtama extends javax.swing.JFrame {
         });
         internalFrame1.add(BtnToolJualObat);
 
-        jSeparator9.setBackground(new java.awt.Color(225, 61, 142));
-        jSeparator9.setForeground(new java.awt.Color(225, 61, 142));
+        jSeparator9.setBackground(new java.awt.Color(0, 75, 35));
+        jSeparator9.setForeground(new java.awt.Color(0, 75, 35));
         jSeparator9.setOrientation(javax.swing.SwingConstants.VERTICAL);
-        jSeparator9.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(217, 1, 122)));
+        jSeparator9.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 75, 35)));
         jSeparator9.setName("jSeparator9"); // NOI18N
         jSeparator9.setOpaque(true);
         jSeparator9.setPreferredSize(new java.awt.Dimension(1, 36));
@@ -7363,10 +7374,10 @@ public class frmUtama extends javax.swing.JFrame {
         });
         internalFrame1.add(BtnToolKasir);
 
-        jSeparator7.setBackground(new java.awt.Color(225, 61, 142));
-        jSeparator7.setForeground(new java.awt.Color(225, 61, 142));
+        jSeparator7.setBackground(new java.awt.Color(0, 75, 35));
+        jSeparator7.setForeground(new java.awt.Color(0, 75, 35));
         jSeparator7.setOrientation(javax.swing.SwingConstants.VERTICAL);
-        jSeparator7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(217, 1, 122)));
+        jSeparator7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 75, 35)));
         jSeparator7.setName("jSeparator7"); // NOI18N
         jSeparator7.setOpaque(true);
         jSeparator7.setPreferredSize(new java.awt.Dimension(1, 36));
@@ -7412,11 +7423,12 @@ public class frmUtama extends javax.swing.JFrame {
         internalFrame4.setBorder(null);
         internalFrame4.setName("internalFrame4"); // NOI18N
         internalFrame4.setPreferredSize(new java.awt.Dimension(330, 25));
-        internalFrame4.setWarnaAtas(new java.awt.Color(255, 185, 195));
+        internalFrame4.setWarnaAtas(new java.awt.Color(16, 141, 16));
+        internalFrame4.setWarnaBawah(new java.awt.Color(16, 141, 16));
         internalFrame4.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT, 4, 1));
 
         lblStts.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
-        lblStts.setForeground(new java.awt.Color(50, 50, 50));
+        lblStts.setForeground(new java.awt.Color(255, 255, 255));
         lblStts.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblStts.setText("Status Admin :");
         lblStts.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -7424,17 +7436,17 @@ public class frmUtama extends javax.swing.JFrame {
         lblStts.setPreferredSize(new java.awt.Dimension(100, 23));
         internalFrame4.add(lblStts);
 
-        jSeparator1.setBackground(new java.awt.Color(225, 61, 142));
-        jSeparator1.setForeground(new java.awt.Color(225, 61, 142));
+        jSeparator1.setBackground(new java.awt.Color(0, 75, 35));
+        jSeparator1.setForeground(new java.awt.Color(0, 75, 35));
         jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
-        jSeparator1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(217, 1, 122)));
+        jSeparator1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 75, 35)));
         jSeparator1.setName("jSeparator1"); // NOI18N
         jSeparator1.setOpaque(true);
         jSeparator1.setPreferredSize(new java.awt.Dimension(1, 21));
         internalFrame4.add(jSeparator1);
 
         lblUser.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
-        lblUser.setForeground(new java.awt.Color(50, 50, 50));
+        lblUser.setForeground(new java.awt.Color(255, 255, 255));
         lblUser.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblUser.setText("Log Out");
         lblUser.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -7442,17 +7454,17 @@ public class frmUtama extends javax.swing.JFrame {
         lblUser.setPreferredSize(new java.awt.Dimension(170, 23));
         internalFrame4.add(lblUser);
 
-        jSeparator2.setBackground(new java.awt.Color(225, 61, 142));
-        jSeparator2.setForeground(new java.awt.Color(225, 61, 142));
+        jSeparator2.setBackground(new java.awt.Color(0, 75, 35));
+        jSeparator2.setForeground(new java.awt.Color(0, 75, 35));
         jSeparator2.setOrientation(javax.swing.SwingConstants.VERTICAL);
-        jSeparator2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(217, 1, 122)));
+        jSeparator2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 75, 35)));
         jSeparator2.setName("jSeparator2"); // NOI18N
         jSeparator2.setOpaque(true);
         jSeparator2.setPreferredSize(new java.awt.Dimension(1, 21));
         internalFrame4.add(jSeparator2);
 
         lblTgl.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
-        lblTgl.setForeground(new java.awt.Color(50, 50, 50));
+        lblTgl.setForeground(new java.awt.Color(255, 255, 255));
         lblTgl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTgl.setText("Tanggal");
         lblTgl.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -7460,17 +7472,17 @@ public class frmUtama extends javax.swing.JFrame {
         lblTgl.setPreferredSize(new java.awt.Dimension(100, 23));
         internalFrame4.add(lblTgl);
 
-        jSeparator3.setBackground(new java.awt.Color(225, 61, 142));
-        jSeparator3.setForeground(new java.awt.Color(225, 61, 142));
+        jSeparator3.setBackground(new java.awt.Color(0, 75, 35));
+        jSeparator3.setForeground(new java.awt.Color(0, 75, 35));
         jSeparator3.setOrientation(javax.swing.SwingConstants.VERTICAL);
-        jSeparator3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(217, 1, 122)));
+        jSeparator3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 75, 35)));
         jSeparator3.setName("jSeparator3"); // NOI18N
         jSeparator3.setOpaque(true);
         jSeparator3.setPreferredSize(new java.awt.Dimension(1, 21));
         internalFrame4.add(jSeparator3);
 
         LblIP.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
-        LblIP.setForeground(new java.awt.Color(50, 50, 50));
+        LblIP.setForeground(new java.awt.Color(255, 255, 255));
         LblIP.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         LblIP.setText("Alamat IP");
         LblIP.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -7478,17 +7490,17 @@ public class frmUtama extends javax.swing.JFrame {
         LblIP.setPreferredSize(new java.awt.Dimension(120, 23));
         internalFrame4.add(LblIP);
 
-        jSeparator6.setBackground(new java.awt.Color(225, 61, 142));
-        jSeparator6.setForeground(new java.awt.Color(225, 61, 142));
+        jSeparator6.setBackground(new java.awt.Color(0, 75, 35));
+        jSeparator6.setForeground(new java.awt.Color(0, 75, 35));
         jSeparator6.setOrientation(javax.swing.SwingConstants.VERTICAL);
-        jSeparator6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(217, 1, 122)));
+        jSeparator6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 75, 35)));
         jSeparator6.setName("jSeparator6"); // NOI18N
         jSeparator6.setOpaque(true);
         jSeparator6.setPreferredSize(new java.awt.Dimension(1, 21));
         internalFrame4.add(jSeparator6);
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(50, 50, 50));
+        jLabel7.setForeground(new java.awt.Color(238, 238, 238));
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/file-edit-16x16.png"))); // NOI18N
         jLabel7.setText(" Versi 1.0 ");
@@ -7521,8 +7533,9 @@ public class frmUtama extends javax.swing.JFrame {
         });
         PanelWall.setLayout(new java.awt.BorderLayout());
 
+        panelJudul.setAlpha(0.0F);
         panelJudul.setBackground(new java.awt.Color(255, 255, 255));
-        panelJudul.setOpaqueImage(false);
+        panelJudul.setOpaqueImage(true);
         panelJudul.setPreferredSize(new java.awt.Dimension(200, 170));
         panelJudul.setRound(false);
         panelJudul.setLayout(null);
@@ -7535,14 +7548,16 @@ public class frmUtama extends javax.swing.JFrame {
         jLabel11.setName("jLabel11"); // NOI18N
         jLabel11.setPreferredSize(new java.awt.Dimension(430, 30));
         panelJudul.add(jLabel11);
-        jLabel11.setBounds(145, 90, 680, 30);
+        jLabel11.setBounds(155, 90, 680, 30);
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 2, 24)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(50, 50, 50));
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/yaski_icon.png"))); // NOI18N
         jLabel8.setText("Khanza HMS+, Hospital Management System");
         jLabel8.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        jLabel8.setIconTextGap(12);
         jLabel8.setName("jLabel8"); // NOI18N
         panelJudul.add(jLabel8);
         jLabel8.setBounds(40, 0, 1040, 150);
@@ -22837,7 +22852,6 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JMenu jMenu1;
