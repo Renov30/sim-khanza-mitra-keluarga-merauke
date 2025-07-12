@@ -1184,6 +1184,9 @@ import java.nio.file.Paths;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 import javax.swing.JOptionPane;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.net.URISyntaxException;
 
 /**
  *
@@ -1892,6 +1895,7 @@ public class frmUtama extends javax.swing.JFrame {
         MnInfoLaborat3 = new javax.swing.JMenuItem();
         MnInfoLaborat2 = new javax.swing.JMenuItem();
         MnUpdate = new javax.swing.JMenuItem();
+        MnUpdateSetting = new javax.swing.JMenuItem();
         jSeparator13 = new javax.swing.JPopupMenu.Separator();
         MnRekapHadir6 = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
@@ -7503,7 +7507,7 @@ public class frmUtama extends javax.swing.JFrame {
         jLabel7.setForeground(new java.awt.Color(238, 238, 238));
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/file-edit-16x16.png"))); // NOI18N
-        jLabel7.setText(" Versi 1.0 ");
+        jLabel7.setText(" Versi 2.0 ");
         jLabel7.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         jLabel7.setIconTextGap(3);
         jLabel7.setName("jLabel7"); // NOI18N
@@ -8361,10 +8365,24 @@ public class frmUtama extends javax.swing.JFrame {
         MnUpdate.setPreferredSize(new java.awt.Dimension(235, 30));
         MnUpdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnUpdateActionPerformed(evt);
+                MnUpdateActionPerformed(evt);
             }
         });
         jMenu8.add(MnUpdate);
+
+        MnUpdateSetting.setBackground(new java.awt.Color(255, 255, 254));
+        MnUpdateSetting.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        MnUpdateSetting.setForeground(new java.awt.Color(50, 90, 40));
+        MnUpdateSetting.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/73.png"))); // NOI18N
+        MnUpdateSetting.setText("Pengaturan Update");
+        MnUpdateSetting.setName("MnUpdateSetting"); // NOI18N
+        MnUpdateSetting.setPreferredSize(new java.awt.Dimension(235, 30));
+        MnUpdateSetting.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MnUpdateSettingActionPerformed(evt);
+            }
+        });
+        jMenu8.add(MnUpdateSetting);
         MenuBar.add(jMenu8);
 
         jMenu4.setBackground(new java.awt.Color(20, 0, 20));
@@ -8860,59 +8878,82 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
         this.setCursor(Cursor.getDefaultCursor());
     }//GEN-LAST:event_btnRanapActionPerformed
 
-    private void BtnUpdateActionPerformed(java.awt.event.ActionEvent evt) {
-        // JOptionPane.showMessageDialog(null, "[ Sedang mendownload ... ]\nKlik OK dan Tunggu 1 Menit hingga muncul \"Update Berhasil\".");
-        // try {
-        //     // URL of the ZIP file to download
-        //     // String zipURL = "http://192.168.2.210/arwildo_a889z/SIMBunda.zip";
-        //     String zipURL = "http://192.168.2.210/mitra_3449a/SIMKhanza.zip";
+    private void MnUpdateSettingActionPerformed(java.awt.event.ActionEvent evt) {
+         if(akses.getkode().equals("Admin Utama")){
+             DlgUpdateSetting dialog = new DlgUpdateSetting(this);
+             dialog.setVisible(true);
+         }else{
+            JOptionPane.showMessageDialog(null, "Anda bukan admin!! \nHanya admin yang dapat melakukan pengaturan update");
+         }
+    }
 
-        //     // Destination directory
-        //     String saveDir = "C:/Khanza Klinik Mitra Keluarga/";
+    private void MnUpdateActionPerformed(java.awt.event.ActionEvent evt) {
+        JOptionPane.showMessageDialog(null, "[ Sedang mendownload ... ]\nKlik OK dan Tunggu 1 Menit hingga muncul \"Update Berhasil\".");
+        try {
+            String ip = Sequel.cariIsi("SELECT ip_address FROM update_setting WHERE id='1'");
+            if(ip.isEmpty()){
+                JOptionPane.showMessageDialog(this,
+                        "IP Address belum diset!\nSilakan buka menu Update Setting lebih dulu.",
+                        "Update gagal", JOptionPane.WARNING_MESSAGE);
+                return;
+            }   
+            // URL of the ZIP file to download
+            // String zipURL = "http://192.168.2.210/arwildo_a889z/SIMBunda.zip";
+            String zipURL  = "http://" + ip + "/SIMRS-Khanza-Mitra-Keluarga-Old.zip"; // pakai IP dari DB
 
-        //     // Establish connection
-        //     URL url = new URL(zipURL);
-        //     URLConnection connection = url.openConnection();
+            // Destination directory
+            Path jarPath = Paths.get(
+                        getClass().getProtectionDomain()
+                            .getCodeSource()
+                            .getLocation()
+                            .toURI()
+            );
+            String saveDir = jarPath.getParent().toString() + File.separator;
+            // String saveDir = "C:/Khanza Klinik Mitra Keluarga/";
 
-        //     // Get input stream from connection
-        //     InputStream inputStream = connection.getInputStream();
+            // Establish connection
+            URL url = new URL(zipURL);
+            URLConnection connection = url.openConnection();
 
-        //     // Output directory
-        //     File outputDir = new File(saveDir);
+            // Get input stream from connection
+            InputStream inputStream = connection.getInputStream();
 
-        //     // Create directory if it doesn't exist
-        //     if (!outputDir.exists()) {
-        //         outputDir.mkdirs();
-        //     }
+            // Output directory
+            File outputDir = new File(saveDir);
 
-        //     // Open zip input stream
-        //     ZipInputStream zipInputStream = new ZipInputStream(inputStream);
+            // Create directory if it doesn't exist
+            if (!outputDir.exists()) {
+                outputDir.mkdirs();
+            }
 
-        //     // Extract files from the ZIP
-        //     ZipEntry entry;
-        //     while ((entry = zipInputStream.getNextEntry()) != null) {
-        //         String filePath = saveDir + entry.getName();
-        //         if (!entry.isDirectory()) {
-        //             // If the entry is a file, extract it
-        //             extractFile(zipInputStream, filePath);
-        //         } else {
-        //             // If the entry is a directory, create it
-        //             File dir = new File(filePath);
-        //             dir.mkdirs();
-        //         }
-        //         zipInputStream.closeEntry();
-        //     }
-        //     zipInputStream.close();
+            // Open zip input stream
+            ZipInputStream zipInputStream = new ZipInputStream(inputStream);
 
-        //     System.out.println("SIMBunda files updated successfully.");
-        //     JOptionPane.showMessageDialog(null, "Update Berhasil ✅\nSilahkan tutup SIMBunda dan mulai kembali.");
+            // Extract files from the ZIP
+            ZipEntry entry;
+            while ((entry = zipInputStream.getNextEntry()) != null) {
+                String filePath = saveDir + entry.getName();
+                if (!entry.isDirectory()) {
+                    // If the entry is a file, extract it
+                    extractFile(zipInputStream, filePath);
+                } else {
+                    // If the entry is a directory, create it
+                    File dir = new File(filePath);
+                    dir.mkdirs();
+                }
+                zipInputStream.closeEntry();
+            }
+            zipInputStream.close();
 
-        //     // Now you might want to restart your application or perform any necessary actions to load the updated files
+            System.out.println("SIMBunda files updated successfully.");
+            JOptionPane.showMessageDialog(null, "Update Berhasil ✅\nSilahkan tutup SIMBunda dan mulai kembali.");
 
-        // } catch (Exception e) {
-        //     System.out.println("Error updating SIMKhanza files: " + e.getMessage());
-        //     JOptionPane.showMessageDialog(null, "Error updating SIMBunda files: " + e.getMessage());
-        // }
+            // Now you might want to restart your application or perform any necessary actions to load the updated files
+
+        } catch (Exception e) {
+            System.out.println("Error updating SIMKhanza files: " + e.getMessage());
+            JOptionPane.showMessageDialog(null, "Error updating SIMBunda files: " + e.getMessage());
+        }
     }
 
     private void extractFile(ZipInputStream zipIn, String filePath) throws IOException {
@@ -22347,6 +22388,7 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
     private javax.swing.JMenuItem MnInfoLaborat2;
     private javax.swing.JMenuItem MnInfoLaborat3;
     private javax.swing.JMenuItem MnUpdate;
+    private javax.swing.JMenuItem MnUpdateSetting;
     private javax.swing.JMenuItem MnInfoMobileJKN;
     private javax.swing.JMenuItem MnKoleksiPenelitian;
     private javax.swing.JMenuItem MnLogin;
