@@ -7526,7 +7526,7 @@ public class frmUtama extends javax.swing.JFrame {
         PanelWall.setBackground(new java.awt.Color(29, 29, 29));
         PanelWall.setBackgroundImage(new javax.swing.ImageIcon(getClass().getResource("/picture/wallpaper.jpg"))); // NOI18N
         PanelWall.setBackgroundImageType(usu.widget.constan.BackgroundConstan.BACKGROUND_IMAGE_STRECT);
-        PanelWall.setBorder(javax.swing.BorderFactory.createEmptyBorder(20, 0, 0, 0));
+        PanelWall.setBorder(null);
         PanelWall.setPreferredSize(new java.awt.Dimension(200, 200));
         PanelWall.setRound(false);
         PanelWall.setWarna(new java.awt.Color(110, 110, 110));
@@ -7568,10 +7568,22 @@ public class frmUtama extends javax.swing.JFrame {
 
         PanelWall.add(panelJudul, java.awt.BorderLayout.PAGE_END);
 
-        FlayMenu.setBackground(new java.awt.Color(255, 255, 255));
+        // FlayMenu.setBackground(new java.awt.Color(255, 255, 255));
+        // FlayMenu.setOpaqueImage(false);
+        // FlayMenu.setPreferredSize(new java.awt.Dimension(200, 110));
+        // FlayMenu.setRound(false);
+        // FlayMenu.setOpaque(true);
+        // FlayMenu.setLayout(new java.awt.GridLayout(1, 0, 4, 5));
+        // PanelWall.add(FlayMenu, java.awt.BorderLayout.PAGE_START);
+
+        FlayMenu.setAlpha(1.0F);
+        FlayMenu.setBackground(new java.awt.Color(254, 254, 254));
+        FlayMenu.setBorder(null);
+        FlayMenu.setMinimumSize(new java.awt.Dimension(100, 52));
+        FlayMenu.setOpaque(true);
+        FlayMenu.setOpaqueGradient(true); 
         FlayMenu.setOpaqueImage(false);
         FlayMenu.setPreferredSize(new java.awt.Dimension(200, 110));
-        FlayMenu.setRound(false);
         FlayMenu.setLayout(new java.awt.GridLayout(1, 0, 4, 5));
         PanelWall.add(FlayMenu, java.awt.BorderLayout.PAGE_START);
 
