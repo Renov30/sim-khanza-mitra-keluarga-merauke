@@ -85,7 +85,7 @@ public final class ICareRiwayatPerawatanFKTP extends javax.swing.JDialog {
         KdDPJPLayanan.setDocument(new batasInput((int)100).getKata(KdDPJPLayanan));
         
         try {
-            otorisasi=koneksiDB.USERPCARE()+":"+koneksiDB.PASSPCARE()+":095";
+            otorisasi=koneksiDB.USERICARE()+":"+koneksiDB.PASSICARE()+":095";
             link=koneksiDB.URLAPIICARE();
         } catch (Exception e) {
             System.out.println("E : "+e);

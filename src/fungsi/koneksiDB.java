@@ -516,6 +516,25 @@ public class koneksiDB {
         }
         return var;
     }
+    public static String PASSICARE(){
+        try{
+            prop.loadFromXML(new FileInputStream("setting/database.xml"));
+            var=EnkripsiAES.decrypt(prop.getProperty("PASSICARE"));
+        }catch(Exception e){
+            var=""; 
+        }
+        return var;
+    }
+    
+    public static String USERICARE(){
+        try{
+            prop.loadFromXML(new FileInputStream("setting/database.xml"));
+            var=EnkripsiAES.decrypt(prop.getProperty("USERICARE"));
+        }catch(Exception e){
+            var=""; 
+        }
+        return var;
+    }
     
     public static String DIVREGPCARE(){
         try{
