@@ -7577,7 +7577,7 @@ public class frmUtama extends javax.swing.JFrame {
         // PanelWall.add(FlayMenu, java.awt.BorderLayout.PAGE_START);
 
         FlayMenu.setAlpha(1.0F);
-        FlayMenu.setBackground(new java.awt.Color(254, 254, 254));
+        FlayMenu.setBackground(new java.awt.Color(255, 255, 255));
         FlayMenu.setBorder(null);
         FlayMenu.setMinimumSize(new java.awt.Dimension(100, 52));
         FlayMenu.setOpaque(true);
