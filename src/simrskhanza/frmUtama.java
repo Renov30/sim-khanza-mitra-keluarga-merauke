@@ -469,6 +469,7 @@ import bridging.MobileJKNFKTPReferensiPoli;
 import bridging.MobileJKNPembatalanPendaftaran;
 import bridging.MobileJKNReferensiPendaftaran;
 import bridging.PCareCekKartu;
+import bridging.PCareCekNIK;
 import bridging.PCareCekReferensiAlergi;
 import bridging.PCareCekReferensiPrognosa;
 import bridging.PCareCekReferensiTACC;
@@ -7507,7 +7508,7 @@ public class frmUtama extends javax.swing.JFrame {
         jLabel7.setForeground(new java.awt.Color(238, 238, 238));
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/file-edit-16x16.png"))); // NOI18N
-        jLabel7.setText(" Versi 2.0 ");
+        jLabel7.setText(" Versi 2.1 ");
         jLabel7.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         jLabel7.setIconTextGap(3);
         jLabel7.setName("jLabel7"); // NOI18N
@@ -8957,14 +8958,14 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
             }
             zipInputStream.close();
 
-            System.out.println("SIMBunda files updated successfully.");
-            JOptionPane.showMessageDialog(null, "Update Berhasil ✅\nSilahkan tutup SIMBunda dan mulai kembali.");
+            System.out.println("SIMKhanza files updated successfully.");
+            JOptionPane.showMessageDialog(null, "Update Berhasil ✅\nSilahkan tutup SIMKhanza dan mulai kembali.");
 
             // Now you might want to restart your application or perform any necessary actions to load the updated files
 
         } catch (Exception e) {
             System.out.println("Error updating SIMKhanza files: " + e.getMessage());
-            JOptionPane.showMessageDialog(null, "Error updating SIMBunda files: " + e.getMessage());
+            JOptionPane.showMessageDialog(null, "Error updating SIMKhanza files: " + e.getMessage());
         }
     }
 
@@ -12391,7 +12392,7 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
         isTutup();
         DlgHome.dispose();
         this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
-        PCareCekKartu form=new PCareCekKartu(this,false);
+        PCareCekNIK form=new PCareCekNIK(this,false);
         form.setSize(PanelUtama.getWidth(), PanelUtama.getHeight());
         form.setLocationRelativeTo(PanelUtama);
         form.setVisible(true);
